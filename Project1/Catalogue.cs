@@ -19,6 +19,11 @@ namespace Project1
             LCatalogue.AddRange(dataFile.Select(x => Item.GetItemFromStringLine(x)).Where(x => x != null).ToList());
         }
 
+        public void SaveToFile(string filePath)
+        {
+            //---
+        }
+
         public int GetIndexOfNumber(int iNumber)
         {
             int iIndex = -1;

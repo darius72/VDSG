@@ -83,16 +83,6 @@ namespace Project1
             Close();
         }
 
-        private void LoadListFromFile(string sFilePath)
-        {
-            using (Stream stream = File.Open(sFilePath, FileMode.Open))
-            {
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-
-                //vdsgCatalogue.LCatalogue = (List<Item>)bformatter.Deserialize(stream);
-            }
-        }
-
         private void SaveListToFile(string sFilePath)
         {
             using (Stream stream = File.Open(sFilePath, FileMode.Create))

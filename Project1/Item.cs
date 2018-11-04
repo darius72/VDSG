@@ -13,6 +13,11 @@ namespace Project1
             Text = text;
         }
 
+        public override string ToString()
+        {
+            return Number.ToString() + ' ' + Text;
+        }
+
         public static Item GetItemFromStringLine(string dataLine)
         {
             var index = dataLine.IndexOf(' ');
