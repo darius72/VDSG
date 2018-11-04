@@ -5,19 +5,19 @@ namespace Project1
 {
     class Catalogue
     {
-        public List<Item> lCatalogue { get; set; }
+        public List<Item> LCatalogue { get; set; }
 
         public Catalogue()
         {
-            lCatalogue = new List<Item>();
+            LCatalogue = new List<Item>();
         }
 
         public int GetIndexOfNumber(int iNumber)
         {
             int iIndex = -1;
-            for (int i = 0; i < lCatalogue.Count; i++)
+            for (int i = 0; i < LCatalogue.Count; i++)
             {
-                if (lCatalogue[i].number == iNumber)
+                if (LCatalogue[i].Number == iNumber)
                 {
                     iIndex = i;
                     break;
@@ -29,9 +29,9 @@ namespace Project1
         public string GetTextByIndex(int iIndex)
         {
             string sResult = null;
-            if (Enumerable.Range(0, lCatalogue.Count).Contains(iIndex))
+            if (Enumerable.Range(0, LCatalogue.Count).Contains(iIndex))
             {
-                sResult = lCatalogue[iIndex].text;
+                sResult = LCatalogue[iIndex].Text;
             }
             return sResult;
         }
@@ -40,12 +40,12 @@ namespace Project1
         {
             string sResult = null;
             int iIndex = -1;
-            for (int i = 0; i < lCatalogue.Count; i++)
+            for (int i = 0; i < LCatalogue.Count; i++)
             {
-                if (lCatalogue[i].number == iNumber)
+                if (LCatalogue[i].Number == iNumber)
                 {
                     iIndex = i;
-                    sResult = lCatalogue[i].text;
+                    sResult = LCatalogue[i].Text;
                     break;
                 }
             }
@@ -54,7 +54,7 @@ namespace Project1
 
         public void ModifyTextByIndex(int iIndex, string sText)
         {
-            lCatalogue[iIndex].text = sText;
+            LCatalogue[iIndex].Text = sText;
         }
 
         // if item with given number exists - modify text value and return true
@@ -64,12 +64,12 @@ namespace Project1
             int iIndex = GetIndexOfNumber(iNumber);
             if (iIndex == -1)
             {
-                lCatalogue.Add(new Item(iNumber, sText));
+                LCatalogue.Add(new Item(iNumber, sText));
                 return false;
             }
             else
             {
-                lCatalogue[iIndex].text = sText;
+                LCatalogue[iIndex].Text = sText;
                 return true;
             }
         }
@@ -77,9 +77,9 @@ namespace Project1
         public List<int> GetListOfNumbers()
         {
             List<int> lResult = new List<int>();
-            foreach (Item it in lCatalogue)
+            foreach (Item it in LCatalogue)
             {
-                lResult.Add(it.number);
+                lResult.Add(it.Number);
             }
             return lResult;
         }

@@ -88,7 +88,7 @@ namespace Project1
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
-                vdsgCatalogue.lCatalogue = (List<Item>)bformatter.Deserialize(stream);
+                vdsgCatalogue.LCatalogue = (List<Item>)bformatter.Deserialize(stream);
             }
         }
 
@@ -97,7 +97,7 @@ namespace Project1
             using (Stream stream = File.Open(sFilePath, FileMode.Create))
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                bformatter.Serialize(stream, vdsgCatalogue.lCatalogue);
+                bformatter.Serialize(stream, vdsgCatalogue.LCatalogue);
             }
         }
     }

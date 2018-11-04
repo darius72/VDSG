@@ -5,12 +5,13 @@ namespace Project1
     [Serializable]
     class Item
     {
-        public int number { get; }
-        public string text { get; set; }
-        public Item(int n, string s)
+        public int Number { get; }
+        public string Text { get; set; }
+
+        public Item(int number, string text)
         {
-            number = n;
-            text = s;
+            Number = number;
+            Text = text;
         }
     }
 }

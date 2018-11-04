@@ -1,0 +1,10 @@
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\bin\Debug\Project1.exe.config
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\bin\Debug\Project1.exe
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\bin\Debug\Project1.pdb
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\obj\Debug\VDSG.csprojAssemblyReference.cache
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\obj\Debug\Project1.Form1.resources
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\obj\Debug\Project1.Properties.Resources.resources
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\obj\Debug\VDSG.csproj.GenerateResource.cache
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\obj\Debug\VDSG.csproj.CoreCompileInputs.cache
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\obj\Debug\Project1.exe
+D:\C#\Applications\WindowsForm\Darius72_VDSG\Project1\obj\Debug\Project1.pdb
