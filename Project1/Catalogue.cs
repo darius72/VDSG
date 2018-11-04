@@ -1,15 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Project1
 {
     class Catalogue
     {
-        public List<Item> LCatalogue { get; set; }
+        private List<Item> LCatalogue { get; set; }
 
         public Catalogue()
         {
             LCatalogue = new List<Item>();
+        }
+
+        public void LoadFromFile(string filePath)
+        {
+            var dataFile = File.ReadAllLines(filePath).ToList<string>();
+            
         }
 
         public int GetIndexOfNumber(int iNumber)
@@ -76,7 +83,9 @@ namespace Project1
 
         public List<int> GetListOfNumbers()
         {
-            List<int> lResult = new List<int>();
+            //List<int> lResult = new List<int>();
+            List<int> lResult = LCatalogue.Select(x => x.Number).ToList<int>();
+
             foreach (Item it in LCatalogue)
             {
                 lResult.Add(it.Number);

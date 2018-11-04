@@ -2,7 +2,6 @@
 
 namespace Project1
 {
-    [Serializable]
     class Item
     {
         public int Number { get; }
@@ -12,6 +11,13 @@ namespace Project1
         {
             Number = number;
             Text = text;
+        }
+
+        public static Item GetItemFromStringLine(string dataLine)
+        {
+            var index = dataLine.IndexOf(' ');
+
+            return null;
         }
     }
 }
