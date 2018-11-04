@@ -16,6 +16,8 @@ namespace Project1
         public static Item GetItemFromStringLine(string dataLine)
         {
             var index = dataLine.IndexOf(' ');
+            if (index == -1)
+                return null;
             int integer = 0;
             var success = int.TryParse(dataLine.Substring(0,index), out integer);
             if (!success)

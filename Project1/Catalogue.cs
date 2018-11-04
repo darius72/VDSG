@@ -6,7 +6,7 @@ namespace Project1
 {
     class Catalogue
     {
-        private List<Item> LCatalogue { get; set; }
+        private List<Item> LCatalogue;
 
         public Catalogue()
         {
@@ -83,14 +83,7 @@ namespace Project1
 
         public List<int> GetListOfNumbers()
         {
-            //List<int> lResult = new List<int>();
-            List<int> lResult = LCatalogue.Select(x => x.Number).ToList<int>();
-
-            foreach (Item it in LCatalogue)
-            {
-                lResult.Add(it.Number);
-            }
-            return lResult;
+            return LCatalogue.Select(x => x.Number).ToList();
         }
     }
 }

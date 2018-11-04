@@ -23,19 +23,18 @@ namespace Project1
             InitializeComponent();
 
             vdsgCatalogue = new Catalogue();
+            vdsgCatalogue.LoadFromFile(filePath);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            vdsgCatalogue.LoadFromFile(filePath);
-            //LoadListFromFile(filePath);
+
             // update ListBox
+            listBox1.Sorted = false;
             listBox1.Items.Clear();
+             
             List<int> lNumbers = vdsgCatalogue.GetListOfNumbers();
-            foreach (int i in lNumbers)
-            {
-                listBox1.Items.Add(i);
-            }
+            listBox1.Items.AddRange(vdsgCatalogue.GetListOfNumbers().Select(x => x.ToString()).ToArray());
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
