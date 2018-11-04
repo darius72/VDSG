@@ -15,13 +15,12 @@ namespace Project1
 
         public void LoadFromFile(string filePath)
         {
-            List<string> dataFile = File.ReadAllLines(filePath).ToList();
-            LCatalogue.AddRange(dataFile.Select(x => Item.GetItemFromStringLine(x)).Where(x => x != null).ToList());
+            LCatalogue.AddRange(File.ReadAllLines(filePath).ToList().Select(x => Item.GetItemFromStringLine(x)).Where(x => x != null).ToList());
         }
 
         public void SaveToFile(string filePath)
         {
-            //---
+            File.WriteAllLines(filePath, LCatalogue.Select(x => x.ToString()).ToList());
         }
 
         public int GetIndexOfNumber(int iNumber)

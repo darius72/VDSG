@@ -78,18 +78,12 @@ namespace Project1
 
         private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            SaveListToFile(filePath);
-
             Close();
         }
 
-        private void SaveListToFile(string sFilePath)
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            using (Stream stream = File.Open(sFilePath, FileMode.Create))
-            {
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                //bformatter.Serialize(stream, vdsgCatalogue.LCatalogue);
-            }
+            vdsgCatalogue.SaveToFile(filePath);
         }
     }
 }
