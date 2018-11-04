@@ -15,8 +15,8 @@ namespace Project1
 
         public void LoadFromFile(string filePath)
         {
-            var dataFile = File.ReadAllLines(filePath).ToList<string>();
-            
+            List<string> dataFile = File.ReadAllLines(filePath).ToList();
+            LCatalogue.AddRange(dataFile.Select(x => Item.GetItemFromStringLine(x)).Where(x => x != null).ToList());
         }
 
         public int GetIndexOfNumber(int iNumber)

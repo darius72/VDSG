@@ -15,7 +15,8 @@ namespace Project1
     {
         private Catalogue vdsgCatalogue;
 
-        private string filePath = "vdsgCatalogue.bin";
+        //private string filePath = "vdsgCatalogue.bin";
+        private string filePath = "datafile.txt";
 
         public Form1()
         {
@@ -26,7 +27,8 @@ namespace Project1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadListFromFile(filePath);
+            vdsgCatalogue.LoadFromFile(filePath);
+            //LoadListFromFile(filePath);
             // update ListBox
             listBox1.Items.Clear();
             List<int> lNumbers = vdsgCatalogue.GetListOfNumbers();
@@ -88,7 +90,7 @@ namespace Project1
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
-                vdsgCatalogue.LCatalogue = (List<Item>)bformatter.Deserialize(stream);
+                //vdsgCatalogue.LCatalogue = (List<Item>)bformatter.Deserialize(stream);
             }
         }
 
@@ -97,7 +99,7 @@ namespace Project1
             using (Stream stream = File.Open(sFilePath, FileMode.Create))
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
-                bformatter.Serialize(stream, vdsgCatalogue.LCatalogue);
+                //bformatter.Serialize(stream, vdsgCatalogue.LCatalogue);
             }
         }
     }
