@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Data;
 
 namespace Project1
 {
@@ -15,7 +17,10 @@ namespace Project1
 
         public void LoadFromFile(string filePath)
         {
-            LCatalogue.AddRange(File.ReadAllLines(filePath).ToList().Select(x => Item.GetItemFromStringLine(x)).Where(x => x != null).ToList());
+            if (File.Exists(filePath))
+            {
+                LCatalogue.AddRange(File.ReadAllLines(filePath).ToList().Select(x => Item.GetItemFromStringLine(x)).Where(x => x != null).ToList());
+            }
         }
 
         public void SaveToFile(string filePath)
@@ -88,6 +93,37 @@ namespace Project1
         public List<int> GetListOfNumbers()
         {
             return LCatalogue.Select(x => x.Number).ToList();
+        }
+
+        public void SaveToFileXml(string filePath)
+        {
+            DataTable dt = new DataTable();
+            dt.TableName = "item";
+            dt.Columns.Add("number");
+            dt.Columns.Add("text");
+            foreach (var item in LCatalogue)
+            {
+                dt.Rows.Add();
+                dt.Rows[dt.Rows.Count - 1]["number"] = item.Number;
+                dt.Rows[dt.Rows.Count - 1]["text"] = item.Text;
+            }
+            dt.WriteXml(filePath, XmlWriteMode.WriteSchema);
+        }
+
+        public void LoadFromFileXml(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                DataTable newTable = new DataTable();
+                newTable.ReadXml(filePath);
+                var convertedList = (from rw in newTable.AsEnumerable()
+                                     select new Item(
+                                         Convert.ToInt32(rw["number"]),
+                                         Convert.ToString(rw["text"])
+                                         )
+                                     ).ToList();
+                LCatalogue = convertedList;
+            }
         }
     }
 }

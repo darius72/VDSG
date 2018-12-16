@@ -16,14 +16,15 @@ namespace Project1
         private Catalogue vdsgCatalogue;
 
         //private string filePath = "vdsgCatalogue.bin";
-        private string filePath = "datafile.txt";
+        //private string filePath = "datafile.txt";
+        private string filePathXml = "datafile.xml";
 
         public Form1()
         {
             InitializeComponent();
 
             vdsgCatalogue = new Catalogue();
-            vdsgCatalogue.LoadFromFile(filePath);
+            vdsgCatalogue.LoadFromFileXml(filePathXml);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,7 +84,7 @@ namespace Project1
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            vdsgCatalogue.SaveToFile(filePath);
+            vdsgCatalogue.SaveToFileXml(filePathXml);
         }
     }
 }
